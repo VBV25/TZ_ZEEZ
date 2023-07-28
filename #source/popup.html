@@ -1,0 +1,55 @@
+<!--POP-UP-question-->
+<section class="popup-reserv__wrapper">
+    <div class="popup-reserv__container">
+        <!--'Кнопка закрытия'-->
+        <div class="popup-reserv__btn-close " id="popup-reserv__btn-close">
+        </div>
+        <!--'Заголовок'-->
+        <h3 class="popup-reserv__title">Reserve a table</h3>
+        <!--'Форма'-->
+        <form class="popup-reserv__form">
+
+            <!--'Имя'-->
+            <div class="popup-reserv__name-container">
+                <label for="popup-reserv__name">Name</label>
+                <input type="text" name="popup-reserv__name" id="popup-reserv__name" placeholder="Name" required />
+                <div class="popup-reserv__fail-message" id="fail-name"></div>
+            </div>
+
+            <!--'Фамилия'-->
+            <div class="popup-reserv__surname-container">
+                <label for="popup-reserv__surname">Surname</label>
+                <input type="text" name="popup-reserv__surname" id="popup-reserv__surname" placeholder="Surname" required />
+                <div class="popup-reserv__fail-message" id="fail-surname"></div>
+            </div>
+
+            <!--'Телефон'-->
+            <div class="popup-reserv__phone-container">
+                <label for="popup-reserv__phone">Phone</label>
+                <input type="phone" name="popup-reserv__phone" id="popup-reserv__phone" placeholder="Phone" required />
+                <div class="popup-reserv__fail-message" id="fail-phone"></div>
+            </div>
+
+            <!--'Количество персон'-->
+            <div class="popup-reserv__persons-container">
+                <label for="popup-reserv__persons">Persons</label>
+                <input type="number" name="popup-reserv__persons" id="popup-reserv__persons" placeholder="Persons" required />
+                <div class="popup-reserv__fail-message" id="fail-person"></div>
+            </div>
+
+            <!--'Комментарии'-->
+            <div class="popup-reserv__comments-container">
+                <label for="popup-reserv__comments">
+          Comments</label>
+                <textarea name="popup-reserv__comments" id="popup-reserv__comments" maxlength="500" placeholder="Comments"></textarea>
+            </div>
+
+            <!--'Кнопка отправки'-->
+            <div class="popup-reserv__btn-container">
+                <button type="submit" class="popup-reserv__btn" id="popup-reserv__btn">Send</button>
+                <div class="popup-reserv__fail-message" id="fail-form"></div>
+            </div>
+        </form>
+
+    </div>
+</section>

@@ -1,0 +1,134 @@
+//4 секция
+:root {
+    --cardImgWi: 670px;
+    --cardImgHe: calc(var(--cardImgWi)*0.8358);
+}
+
+.cafe-menu {
+    @include wiHe($he: max-content);
+    @include flCent;
+    padding: 114px 0px 80px;
+    background-color: $whiteColor;
+    &__wrapper {
+        @include gridCent;
+        @include wiHe(var(--contentWidh), max-content);
+        gap: 30px;
+    }
+    &__card {
+        @include wiHe;
+        @include flexAlJu;
+        gap: 30px;
+    }
+}
+
+//каточки
+.card-menu {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    &__text {
+        h2 {
+            @include fontSizeH2;
+            text-transform: uppercase;
+        }
+        p {
+            @include fontSizeP($color: $grayColor);
+            display: flex;
+            width: 100%;
+            margin-top: 16px;
+        }
+    }
+    &__line {
+        @include wiHe(108px, 2px);
+        background-color: $goldColor;
+        position: relative;
+        left: -55px;
+    }
+    &__img {
+        img {
+            @include wiHe(var(--cardImgWi), var(--cardImgHe));
+        }
+    }
+}
+
+.card-menu-2 {
+    flex-direction: row-reverse;
+}
+
+@media (max-width: 1350px) {
+     :root {
+        --cardImgWi: 570px;
+    }
+}
+
+@media (max-width: 1250px) {
+    .cafe-menu {
+        padding: 80px 0px;
+        &__wrapper {
+            gap: 20px;
+        }
+        &__card {
+            gap: 20px;
+        }
+    }
+    //каточки
+    .card-menu {
+        gap: 4%;
+        &__text {
+            width: 48%;
+        }
+        &__line {
+            left: -15px;
+        }
+        &__img {
+            width: 48%;
+            img {
+                @include wiHe($he: auto);
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .card-menu {
+        &__line {
+            left: -8px;
+        }
+    }
+}
+
+@media (max-width: 495px) {
+    .cafe-menu {
+        padding: 40px 0px;
+        &__wrapper {
+            gap: 20px;
+        }
+        &__card {
+            flex-direction: column;
+            text-align: center;
+            gap: 20px;
+        }
+    }
+    .card-menu {
+        gap: 10px;
+        &__text {
+            width: 85%;
+        }
+        &__line {
+            margin: 10px auto 0;
+            left: unset;
+        }
+        &__img {
+            width: 85%;
+            img {
+                @include wiHe($he: auto);
+            }
+        }
+    }
+}
+
+@media (max-width: 495px) {
+    .cafe-menu {
+        overflow: hidden;
+    }
+}

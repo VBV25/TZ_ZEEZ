@@ -1,0 +1,250 @@
+//1 блок
+:root {
+    --firstBlokHe: 901px;
+    --padTopText1Block: 99px;
+    --firstBlockBtnWi: 270px;
+    --firstBlockBtnHe: 100px;
+}
+
+.demonstration-block {
+    @include wiHe($he: var(--firstBlokHe));
+    @include leTo;
+    position: relative;
+    overflow: hidden;
+    //фото кафе
+    &__img {
+        @include wiHe;
+        @include flCent;
+        @include leTo;
+        z-index: -1;
+        position: absolute;
+        img {
+            @include wiHe(130%, auto);
+            //min-height: 100%;
+        }
+    }
+    //обертка
+    &__conteiner {
+        @include wiHe(var(--contentWidh));
+        margin: 0 auto;
+        padding-top: calc(var(--heHeader) + var(--padTopText1Block));
+        padding-bottom: calc(var(--padTopText1Block) * 2);
+    }
+    //график работы
+    h4 {
+        @include fontSizeH4($color: $whiteColor);
+        letter-spacing: 0.06em;
+        margin-bottom: 24px;
+    }
+    //описание
+    &__text {
+        @include fontSize(64px, 700, 88px);
+        margin-bottom: 40px;
+    }
+    //обертка кнопок
+    &__btn-group {
+        @include flexAlJu;
+    }
+    //кнопка брони
+    &__btn {
+        @include fontSizeH5($color: $whiteColor);
+        @include wiHe(var(--firstBlockBtnWi), var(--firstBlockBtnHe));
+        position: relative;
+        background-color: $goldColor;
+        &::after {
+            @include fontSizeH5($color: $whiteColor);
+            @include flCent;
+            @include wiHe(var(--firstBlockBtnWi), var(--firstBlockBtnHe));
+            @include leTo;
+            content: 'Reserve a table';
+            position: absolute;
+            background-color: $blueColor;
+        }
+        &:hover::after {
+            box-shadow: 0 0 10px 1px $goldColor;
+            color: $goldColor;
+        }
+    }
+    //група ссылок на соц сети
+    &__social-group {
+        display: flex;
+        gap: 25px;
+    }
+    //ссылки на соц сети
+    &__link {
+        @include bgImg(none);
+        @include wiHe(48px, 48px);
+        border-radius: 50%;
+        color: $whiteColor;
+        &:hover {
+            box-shadow: 0 0 5px 0px $goldColorOpacity;
+            background-color: $goldColorOpacity;
+        }
+    }
+    &__fb {
+        background-image: url('../img/svg/fb-lable-white.svg');
+        &:hover {
+            background-image: url('../img/svg/fb-lable-black.svg');
+        }
+    }
+    &__ig {
+        background-image: url('../img/svg/ig-lable-white.svg');
+        &:hover {
+            background-image: url('../img/svg/ig-lable-black.svg');
+        }
+    }
+    &__tw {
+        background-image: url('../img/svg/tw-lable-white.svg');
+        &:hover {
+            background-image: url('../img/svg/tw-lable-black.svg');
+        }
+    }
+    &__yt {
+        background-image: url('../img/svg/yt-lable-white.svg');
+        &:hover {
+            background-image: url('../img/svg/yt-lable-black.svg');
+        }
+    }
+}
+
+@media (max-width: 1600px) {
+    .demonstration-block {
+        &__img {
+            img {
+                @include wiHe(150%,
+                auto);
+            }
+        }
+    }
+}
+
+@media (max-width: 1350px) {
+     :root {
+        --padTopText1Block: 55px;
+        --firstBlokHe: max-content;
+        --firstBlockBtnWi: 250px;
+        --firstBlockBtnHe: 80px;
+    }
+    .demonstration-block {
+        &__text {
+            @include fontSize(52px,
+            900,
+            72px);
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+     :root {
+        --padTopText1Block: 20px;
+        --firstBlockBtnWi: 170px;
+        --firstBlockBtnHe: 55px;
+    }
+    .demonstration-block {
+        background-color: $whiteColor;
+        &__conteiner {
+            h4 {
+                @include fontSizeH4($color: $blackColor);
+                letter-spacing: 0.04em;
+                margin-bottom: 10px;
+            }
+        }
+        &__text {
+            @include fontSize(42px,
+            900,
+            50px,
+            $color: $blackColor);
+            margin-bottom: 30px;
+        }
+        &__link {
+            @include wiHe(35px,
+            35px);
+            &:hover {
+                box-shadow: 0 0 5px 2px $goldColor;
+                background-color: $blueColorOpacity08;
+            }
+        }
+        &__fb {
+            background-image: url('../img/svg/fb-lable-black.svg');
+            &:hover {
+                background-image: url('../img/svg/fb-lable-white.svg');
+            }
+        }
+        &__ig {
+            background-image: url('../img/svg/ig-lable-black.svg');
+            &:hover {
+                background-image: url('../img/svg/ig-lable-white.svg');
+            }
+        }
+        &__tw {
+            background-image: url('../img/svg/tw-lable-black.svg');
+            &:hover {
+                background-image: url('../img/svg/tw-lable-white.svg');
+            }
+        }
+        &__yt {
+            background-image: url('../img/svg/yt-lable-black.svg');
+            &:hover {
+                background-image: url('../img/svg/yt-lable-white.svg');
+            }
+        }
+        &__img {
+            @include wiHe(var(--contentWidh),
+            auto);
+            z-index: unset;
+            position: static;
+            margin: 0 auto 20px;
+            img {
+                @include wiHe;
+            }
+        }
+    }
+}
+
+@media (max-width: 495px) {
+     :root {
+        --padTopText1Block: 10px;
+    }
+    .demonstration-block {
+        width: 100%;
+        overflow: hidden;
+        h4 {
+            letter-spacing: 0.04em;
+            margin-bottom: 10px;
+        }
+        &__text {
+            @include fontSize(32px,
+            700,
+            40px,
+            $blackColor);
+            margin-bottom: 20px;
+        }
+        &__btn-group {
+            @include flCent;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        &__social-group {
+            gap: 20px;
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .demonstration-block {
+        &__conteiner {
+            h4 {
+                margin-bottom: 5px;
+            }
+        }
+        &__text {
+            @include fontSize(30px,
+            900,
+            40px,
+            $color: $blackColor);
+        }
+        &__social-group {
+            gap: 10px;
+        }
+    }
+}

@@ -1,0 +1,288 @@
+//6 секция
+:root {
+    --padTop6Block: 101px;
+}
+
+.info {
+    @include wiHe($he: max-content);
+    @include flCent;
+    box-sizing: border-box;
+    background-color: $whiteColor;
+    padding-top: calc(var(--galleryImgHe) / 2 + var(--padTop6Block));
+    padding-bottom: 25px;
+    //обертка блока общего контента
+    &__container {
+        box-sizing: border-box !important;
+        @include wiHe(var(--contentWidh), max-content);
+        @include flexAlJu(start, start);
+        display: flex;
+        gap: 96px;
+    }
+    //контакты
+    &__contacts {
+        display: grid;
+        gap: 40px;
+        .contacts {
+            //заголовок
+            &__title {
+                @include fontSizeH2;
+            }
+            //обертка пунктов
+            &__row {
+                width: max-content;
+                display: flex;
+                gap: 16px;
+            }
+            //картинка
+            &__lable {
+                @include wiHe(64px, 64px);
+            }
+            //обертка текста
+            &__text-column {
+                p {
+                    @include fontSizeP;
+                }
+                h4 {
+                    @include fontSizeH4($color: $blackColor !important);
+                }
+            }
+        }
+    }
+    //обертка блока вопросы
+    &__questions {
+        display: grid;
+        width: 678px;
+        .questions {
+            //заголовок
+            &__title {
+                @include fontSizeH2;
+                margin-bottom: 29px;
+            }
+            //форма
+            &__form {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                row-gap: 20px;
+                column-gap: 19px;
+                //подпись
+                label {
+                    @include fontSizeP;
+                    display: grid;
+                    //инпуты
+                    input {
+                        @include wiHe(320px, 80px);
+                        border: 1px solid $smokeColor;
+                        padding: 28px 16px;
+                        &:hover {
+                            border-color: $goldColor;
+                        }
+                        &:focus {
+                            border-color: $blueColor;
+                        }
+                    }
+                    //текстовое окно
+                    textarea {
+                        @include wiHe(100%, max-content);
+                        border: 1px solid $smokeColor;
+                        padding: 28px 16px;
+                        resize: none;
+                        overflow-y: auto;
+                        &:hover {
+                            border-color: $goldColor;
+                        }
+                        &:focus {
+                            border-color: $blueColor;
+                        }
+                    }
+                }
+            }
+            //кнопка отправки формы
+            &__btn {
+                @include wiHe(270px, 100px);
+                @include fontSizeH4($color: $whiteColor);
+                background-color: $blueColor;
+                &:hover {
+                    box-shadow: 0 0 10px 1px $goldColor;
+                    color: $goldColor;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1350px) {
+    .info {
+        padding-bottom: 25px;
+        &__questions {
+            width: 57%;
+            .questions {
+                &__title {
+                    margin-bottom: 29px;
+                }
+                &__form {
+                    width: 100%;
+                    @include gridCent;
+                    grid-template-areas: 'questions__name questions__email' 'questions__request questions__request' 'questions__btn questions__btn';
+                    grid-template-columns: 48% 48%;
+                    grid-template-rows: 20% 50% 10%;
+                    row-gap: 10%;
+                    column-gap: 4%;
+                    label {
+                        input {
+                            @include wiHe;
+                        }
+                        textarea {
+                            @include wiHe;
+                        }
+                    }
+                }
+                &__name {
+                    grid-area: questions__name;
+                }
+                &__email {
+                    grid-area: questions__email;
+                }
+                &__request {
+                    grid-area: questions__request;
+                }
+                &__btn {
+                    @include wiHe(180px, 60px);
+                    grid-area: questions__btn;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1250px) {
+     :root {
+        --padTop6Block: 70px;
+    }
+    .info {
+        &__container {
+            justify-content: space-between;
+            gap: 3%;
+        }
+        &__contacts {
+            width: max-content;
+            gap: 40px;
+            .contacts {
+                &__row {
+                    gap: 16px;
+                }
+                &__lable {
+                    @include wiHe(64px, 64px);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .info {
+        padding-bottom: 25px;
+        &__container {
+            flex-direction: column;
+            gap: 30px;
+        }
+        h2 {
+            width: 100%;
+            text-align: center;
+        }
+        &__contacts {
+            @include flexAlJu(space-around);
+            width: var(--contentWidh);
+            flex-wrap: wrap;
+            gap: auto;
+            .contacts {
+                &__row {
+                    box-sizing: border-box;
+                    width: 40%;
+                    gap: 16px;
+                }
+            }
+        }
+        &__questions {
+            width: 100%;
+            .questions {
+                &__btn {
+                    margin: auto;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 677px) {
+    .info {
+        &__contacts {
+            @include flCent;
+            .contacts {
+                &__row {
+                    width: 90%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 495px) {
+    .info {
+        &__contacts {
+            width: 100%;
+            .contacts {
+                &__row {
+                    align-items: center;
+                }
+                &__lable {
+                    @include wiHe(max-content, max-content);
+                    img {
+                        @include wiHe(34px, 34px);
+                    }
+                }
+            }
+        }
+        &__questions {
+            width: 100%;
+            .questions {
+                &__title {
+                    margin-bottom: 29px;
+                }
+                &__form {
+                    width: 100%;
+                    @include gridCent;
+                    grid-template-areas: 'questions__name' 'questions__email' 'questions__request' 'questions__btn';
+                    grid-template-columns: 90%;
+                    grid-template-rows: max-content;
+                    row-gap: 5px;
+                    column-gap: unset;
+                }
+                &__btn {
+                    @include wiHe(120px, 40px);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 495px) {
+    .info {
+        &__contacts {
+            gap: 15px;
+            .contacts {
+                &__row {
+                    text-align: center;
+                    flex-direction: column;
+                    gap: 3px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 320px) {
+     :root {
+        --padTop6Block: 20px;
+    }
+}

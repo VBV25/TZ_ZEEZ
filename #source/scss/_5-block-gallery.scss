@@ -1,0 +1,188 @@
+//5 секция
+:root {
+    --botPadSect5: 235px;
+    --galleryImgWi: 969px;
+    --galleryImgHe: calc( var(--galleryImgWi) * 0.666667);
+    --gallerySectionPadBot: calc(var(--galleryImgHe)/1.6);
+}
+
+.gallery {
+    @include wiHe($he: max-content);
+    //@include gridAlJu(center,unset);
+    z-index: 30;
+    display: block;
+    position: relative;
+    padding-top: 68px;
+    padding-bottom: var(--gallerySectionPadBot);
+    background-color: $blueColor;
+    //заголовок и текст
+    &__header {
+        @include wiHe(var(--contentWidh), max-content);
+        position: relative;
+        margin: auto;
+    }
+    &__title {
+        @include fontSizeH2($color: $whiteColor);
+    }
+    &__text {
+        @include fontSizeP($color: $whiteColor);
+        width: 564px;
+    }
+    //обертка стрелок глереи
+    &__nav {
+        @include wiHe(max-content, max-content);
+        @include flexAlJu;
+        gap: 20px;
+        position: relative;
+        left: var(--contentWidh);
+        top: -100px;
+        min-width: 0;
+    }
+    //стрелки галереи
+    .gallery__nav .swiper-button-prev {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        position: absolute;
+        left: -120px;
+    }
+    .gallery__nav .swiper-button-next {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        position: absolute;
+        right: 0px;
+    }
+    .gallery__nav .swiper-button-prev::after {
+        color: $goldColor;
+    }
+    .gallery__nav .swiper-button-next::after {
+        color: $goldColor;
+    }
+    .gallery__nav .swiper-button-prev:hover::after,
+    .gallery__nav .swiper-button-next:hover::after {
+        @include textBorderBlack;
+    }
+    // контейнер с галереей
+    &__row {
+        @include wiHe(100%, max-content);
+        display: block;
+        z-index: 30;
+        position: absolute;
+        top: 262px;
+        overflow: hidden;
+        min-width: 0;
+    }
+    &__photo {
+        @include flCent;
+        img {
+            @include wiHe(var(--galleryImgWi), var(--galleryImgHe));
+        }
+    }
+}
+
+@media (max-width: 2000px) {
+     :root {
+        --galleryImgWi: 46vw;
+    }
+}
+
+@media (max-width: 1250px) {
+     :root {
+        --gallerySectionPadBot: calc(var(--galleryImgHe)/1.4);
+    }
+    .gallery {
+        padding-top: 48px;
+        &__text {
+            width: 60%;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+     :root {
+        --gallerySectionPadBot: calc(var(--galleryImgHe)/1.5);
+    }
+    .gallery {
+        @include wiHe($he: max-content);
+        //padding: 38px 0 var(--botPadSect5);
+        &__nav {
+            top: -60px;
+        }
+        //контейнер с галереей
+        &__row {
+            top: 60%;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+     :root {
+        --galleryImgWi: 55vw;
+    }
+    .gallery {
+        &__header {
+            height: max-content;
+            margin: auto;
+            text-align: center;
+            h2 {
+                margin-bottom: 20px;
+            }
+        }
+        &__text {
+            width: 90%;
+            margin: auto;
+        }
+        //контейнер со стрелками галереи
+        &__nav {
+            left: unset;
+            top: 30px;
+            margin: 10px auto;
+        }
+        //стрелки галереи
+        //стрелки галереи
+        .gallery__nav .swiper-button-prev {
+            left: -70px;
+        }
+        .gallery__nav .swiper-button-next {
+            right: -70px;
+        }
+        //контейнер со слайдами галереи
+        &__row {
+            top: 68%;
+        }
+    }
+}
+
+@media (max-width: 650px) {
+     :root {
+        --gallerySectionPadBot: calc(var(--galleryImgHe)/1.2);
+    }
+}
+
+@media (max-width: 540px) {
+     :root {
+        --galleryImgWi: 75vw;
+    }
+}
+
+@media (max-width: 470px) {
+     :root {
+        --gallerySectionPadBot: calc(var(--galleryImgHe)/1.2);
+    }
+    .gallery {
+        &__header {
+            padding-bottom: 20px;
+        }
+        &__row {
+            top: 70%;
+        }
+    }
+}
+
+@media (max-width: 375px) {
+     :root {
+        --galleryImgWi: 85vw;
+    }
+    .gallery {
+        &__row {
+            top: 75%;
+        }
+    }
+}

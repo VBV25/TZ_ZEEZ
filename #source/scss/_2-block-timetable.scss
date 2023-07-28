@@ -1,0 +1,265 @@
+//2 блок
+:root {
+    --timetableHe: 808px;
+    --squareWi: 471px;
+    --squareHe: 501px;
+    --photoSquareWi: 323px;
+    --photoSquareHe: calc(var(--photoSquareWi) * 1.505);
+}
+
+.timetable {
+    @include wiHe($he: var(--timetableHe));
+    background-color: $whiteColor;
+    &__wrapper {
+        @include wiHe(var(--contentWidh));
+        @include flexAlJu;
+        margin: auto;
+    }
+    &__day-block-group {
+        display: block;
+        max-width: 100%;
+        height: max-content;
+        ul {
+            display: block;
+        }
+    }
+    &__day {
+        display: block;
+        margin-bottom: 30px;
+        h4 {
+            @include fontSizeH4;
+        }
+        h5 {
+            @include fontSizeH5;
+            @include flCent(start);
+            margin: 10px 0;
+        }
+        span {
+            @include wiHe(max-content);
+            @include flCent;
+            padding: 0 12px;
+        }
+    }
+    &__square {
+        @include wiHe(var(--squareWi), var(--squareHe));
+        position: relative;
+        display: flex;
+        left: -100px;
+        border: 2px solid $goldColor;
+        &::after,
+        &::before {
+            @include bgImg;
+            @include wiHe(var(--photoSquareWi), var(--photoSquareHe));
+            content: '';
+            position: absolute;
+        }
+        &::after {
+            @include leBo(-51px, -97px);
+            background-image: url('../img/2sect-01.jpg');
+        }
+        &::before {
+            @include riTo(-51px,
+            -100px);
+            background-image: url('../img/2sect-02.jpg');
+        }
+    }
+}
+
+@media (max-width: 1350px) {
+     :root {
+        --timetableHe: 708px;
+        --squareWi: 371px;
+        --squareHe: calc(var(--squareWi) * 1.364);
+        --photoSquareWi: 273px;
+    }
+    .timetable {
+        &__square {
+            left: -100px;
+            &::after {
+                @include leBo(-51px,
+                -97px);
+            }
+            &::before {
+                @include riTo(-51px,
+                -100px);
+            }
+        }
+    }
+}
+
+@media (max-width: 1250px) {
+     :root {
+        --timetableHe: 708px;
+        --squareWi: 280px;
+        --photoSquareWi: 210px;
+    }
+    .timetable {
+        &__square {
+            left: -70px;
+            &::after {
+                @include leBo(-80px,
+                -27%);
+            }
+            &::before {
+                @include riTo(-80px,
+                -27%);
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+     :root {
+        --timetableHe: 488px;
+        --squareWi: 240px;
+        --photoSquareWi: 160px;
+    }
+    .timetable {
+        &__day {
+            margin-bottom: 20px;
+            h5 {
+                margin: 8px 0;
+            }
+            span {
+                @include wiHe(max-content,
+                100%);
+                padding: 0 4px;
+                img {
+                    @include wiHe(25px,
+                    auto);
+                }
+            }
+        }
+        &__square {
+            left: -50px;
+            &::after {
+                @include leBo(-55px,
+                -19%);
+            }
+            &::before {
+                @include riTo(-55px,
+                -19%);
+            }
+        }
+    }
+}
+
+@media (max-width: 875px) {
+     :root {
+        --timetableHe: 488px;
+        --squareWi: 200px;
+        --photoSquareWi: 150px;
+    }
+    .timetable {
+        &__square {
+            left: -20px;
+            &::after {
+                @include leBo(-65px,
+                -10%);
+            }
+            &::before {
+                @include riTo(-65px,
+                -10%);
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+     :root {
+        --squareWi: 180px;
+        --photoSquareWi: 160px;
+    }
+    .timetable {
+        @include wiHe($he: max-content);
+        padding: 50px 1%;
+        &__wrapper {
+            display: block;
+        }
+        &__day {
+            text-align: center;
+            h5 {
+                @include flCent;
+                span {
+                    padding: 0 8px;
+                    img {
+                        @include wiHe(30px,
+                        auto);
+                    }
+                }
+            }
+        }
+        &__square {
+            margin: 70px auto;
+            position: relative;
+            left: unset;
+            &::after {
+                @include leBo(-45px,
+                -85px);
+            }
+            &::before {
+                @include riTo(-45px,
+                -85px);
+            }
+        }
+    }
+}
+
+@media (max-width: 495px) {
+     :root {
+        --squareWi: 150px;
+        --photoSquareWi: 115px;
+    }
+    .timetable {
+        &__day-block-group {
+            display: block;
+            box-sizing: border-box;
+            ul {
+                width: 100%;
+            }
+        }
+        &__day {
+            width: 100%;
+            h5 {
+                @include flCent;
+                flex-wrap: wrap;
+                span {
+                    width: 80%;
+                    padding: 0 4px;
+                }
+            }
+        }
+        &__square {
+            margin: 50px auto;
+            &::after {
+                @include leBo(-35px,
+                -45px);
+            }
+            &::before {
+                @include riTo(-35px,
+                -45px);
+            }
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .timetable {
+        overflow: hidden;
+        &__day-block-group ul {
+            width: 80vw;
+        }
+        &__day {
+            margin: 5px auto;
+            h4 {
+                text-align: center;
+            }
+            h5 {
+                text-align: center;
+                span {
+                    margin: 3px auto;
+                }
+            }
+        }
+    }
+}

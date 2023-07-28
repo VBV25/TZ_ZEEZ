@@ -1,0 +1,117 @@
+//обнуление
+@import 'null-style';
+//переменные,шаблоны,миксины
+@import 'base';
+//POPUP
+@import 'popup-form';
+
+/*-------ОБЩИЕ СТИЛИ---*/
+
+body {
+    background: $darkGray;
+}
+
+body.lock {
+    overflow: hidden;
+}
+
+.visible {
+    top: 0;
+    transition: all 0.4s ease 0s;
+}
+
+main {
+    overflow: hidden;
+    @include wiHe($he: max-content);
+}
+
+//------ЧИСЛОВЫЕ-ПЕРЕМЕННЫЕ-ОБЩИЕ---------
+:root {
+    --fsMenuHead: 16px;
+    --fsH2: 44px;
+    --liHeH2: 88px;
+    --fsH3: 36px;
+    --fsH4: 24px;
+    --fsH5: 18px;
+    --fsP: 16px;
+    --contentWidh: 1168px;
+}
+
+@media (max-width: 1350px) {
+     :root {
+        --contentWidh: 85vw;
+    }
+}
+
+@media (max-width: 1250px) {
+     :root {
+        --contentWidh: 90vw;
+    }
+}
+
+@media (max-width: 1024px) {
+     :root {
+        --liHeH2: 52px;
+    }
+}
+
+@media (max-width: 900px) {
+     :root {
+        --fsMenuHead: 14px;
+        --fsH2: 42px;
+        --liHeH2: 48px;
+        --fsH3: 34px;
+        --fsH4: 22px;
+        --fsH5: 16px;
+        --fsP: 14px;
+    }
+}
+
+@media (max-width: 767px) {
+     :root {
+        --fsMenuHead: 15px;
+        --fsH2: 40px;
+        --liHeH2: 44px;
+    }
+}
+
+@media (max-width: 495px) {
+     :root {
+        --fsMenuHead: 18px;
+        --fsH2: 36px;
+        --liHeH2: 40px;
+        --contentWidh: 80%;
+    }
+}
+
+@media (max-width: 320px) {
+     :root {
+        --fsH2: 26px;
+        --liHeH2: 32px;
+        --fsH3: 24px;
+        --fsH4: 18px;
+        --fsH5: 14px;
+        --fsP: 12px;
+    }
+}
+
+//---------------------------------
+//хедер
+@import 'header';
+//1 блок
+@import '1-block-demonstration';
+//2
+@import '2-block-timetable';
+//3
+@import '3-block-advantages';
+//4
+@import '4-block-cafe-menu';
+//5
+@import '5-block-gallery';
+//6
+@import '6-block-info-form';
+//7
+@import '7-block-map';
+//футер
+@import 'footer';
+//-----------------------------------------

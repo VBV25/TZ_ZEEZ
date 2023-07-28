@@ -1,0 +1,95 @@
+.footer {
+    @include wiHe($he: max-content);
+    @include flexAlJu(center);
+    background-color: $whiteColor;
+    padding: 20px 0px 326px;
+    //обертка строки футера
+    &__row {
+        box-sizing: border-box;
+        @include wiHe(var(--contentWidh), max-content);
+        @include flexAlJu;
+    }
+    //логотип
+    &__logo {
+        box-sizing: border-box;
+        @include wiHe(var(--logoHedWe), var(--logoHedHe));
+        img {
+            @include wiHe;
+        }
+    }
+    //группа ссылок
+    &__sotial-link-group {
+        display: flex;
+        gap: 25px;
+    }
+    //ссылки на соцсети
+    &__link {
+        @include wiHe(48px, 48px);
+        @include bgImg(unset);
+        border-radius: 50%;
+        &:hover {
+            box-shadow: 0 0 5px 2px $goldColor;
+            background-color: $blueColorOpacity08;
+        }
+    }
+    &__fb {
+        background-image: url('../img/svg/fb-lable-black.svg');
+        &:hover {
+            background-image: url('../img/svg/fb-lable-white.svg');
+        }
+    }
+    &__ig {
+        background-image: url('../img/svg/ig-lable-black.svg');
+        &:hover {
+            background-image: url('../img/svg/ig-lable-white.svg');
+        }
+    }
+    &__tw {
+        background-image: url('../img/svg/tw-lable-black.svg');
+        &:hover {
+            background-image: url('../img/svg/tw-lable-white.svg');
+        }
+    }
+    &__yt {
+        background-image: url('../img/svg/yt-lable-black.svg');
+        &:hover {
+            background-image: url('../img/svg/yt-lable-white.svg');
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .footer {
+        &__link {
+            @include wiHe(35px,
+            35px);
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .footer {
+        padding-bottom: 100px;
+        &__logo {
+            @include wiHe(170px,
+            32px);
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .footer__row {
+        @include flCent;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 320px) {
+    .footer {
+        overflow: hidden;
+        &__sotial-link-group {
+            gap: 10px;
+        }
+    }
+}

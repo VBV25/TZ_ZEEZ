@@ -1,0 +1,24 @@
+//7 секция
+.map {
+    @include wiHe($he: max-content);
+    @include flexAlJu(center);
+    background-color: $whiteColor;
+    padding: 25px 0px 20px;
+    &__script {
+        @include wiHe(var(--contentWidh), 547px);
+        @include bgImg;
+        background-image: url('../img/map.jpg');
+    }
+    &__google-map {
+        @include wiHe;
+    }
+}
+
+@media (max-width: 767px) {
+    .map {
+        &__script {
+            @include wiHe(var(--contentWidh),
+            347px);
+        }
+    }
+}

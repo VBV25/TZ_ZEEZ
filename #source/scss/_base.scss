@@ -1,0 +1,217 @@
+//-----------шрифты--ПОДКЛЮЧЕНИЕ--------
+@font-face {
+    font-family: Poppins;
+    font-style: normal;
+    font-weight: normal;
+    src: local('Poppins-Regular'), url('../fonts/Poppins-Regular.ttf') format('truetype');
+}
+
+//----------ПЕРЕМЕННЫЕ--------------------
+//-цвета-
+$darkGray: rgb(100,
+100,
+100);
+$whiteColor: rgb(255,
+255,
+255);
+$blueColor: rgb(58,
+69,
+116);
+$blueColorOpacity: rgba(58,
+69,
+116,
+0.6);
+$blueColorOpacity08: rgba(58,
+69,
+116,
+0.8);
+$blackColor: rgb(0,
+0,
+0);
+$blackColorOpacity: rgba(0,
+0,
+0,
+0.9);
+$goldColor: rgb(211,
+180,
+127);
+$goldColorOpacity: rgba(211,
+180,
+127,
+0.7);
+$grayColor: rgb(128,
+128,
+128);
+$smokeColor: rgb(204,
+204,
+204);
+//
+//--------------шрифты--------------
+$fontFamily1: Poppins,
+Arial,
+sans-serif;
+//
+//-----------------миксины----------------
+//ширина и высота элемента
+@mixin wiHe($wi: 100%,
+$he: 100%) {
+    width: $wi;
+    height: $he;
+}
+
+//позиционирование
+@mixin leTo($top: 0,
+$left: 0) {
+    top: $top;
+    left: $left;
+}
+
+@mixin riTo($top: 0,
+$right: 0) {
+    top: $top;
+    right: $right;
+}
+
+@mixin riBo($bottom: 0,
+$right: 0) {
+    bottom: $bottom;
+    right: $right;
+}
+
+@mixin leBo($bottom: 0,
+$left: 0) {
+    bottom: $bottom;
+    left: $left;
+}
+
+//вставка изображения как фона(без ссылки на изображение)
+@mixin bgImg($bgCol: $whiteColor,
+$bgImSize: 100% 100%) {
+    background-color: $bgCol;
+    background-size: $bgImSize;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+//флекс элемент по центру
+@mixin flCent($jusCon: center,
+$alIt: center) {
+    display: flex;
+    justify-content: $jusCon;
+    align-items: $alIt;
+}
+
+//флекс элемент слева снизу
+@mixin flStCen($jusCon: start,
+$alIt: center) {
+    display: flex;
+    justify-content: $jusCon;
+    align-items: $alIt;
+}
+
+//флекс элемент: по вертикали центр, горизонтально - разнесено по краям
+@mixin flexAlJu($jusCon: space-between,
+$alIt: center) {
+    display: flex;
+    justify-content: $jusCon;
+    align-items: $alIt;
+}
+
+//грид элемент: по вертикали центр, горизонтально - разнесено по краям
+@mixin gridAlJu($jusCon: space-between,
+$alIt: center) {
+    display: grid;
+    justify-content: $jusCon;
+    align-items: $alIt;
+}
+
+//грид центр
+@mixin gridCent($jusCon: center,
+$alIt: center) {
+    display: grid;
+    justify-content: $jusCon;
+    align-items: $alIt;
+}
+
+//обводка текста
+@mixin textBorderGold {
+    text-shadow: -0 -1px 4px $goldColor, 0 -1px 4px $goldColor, -0 1px 4px $goldColor, 0 1px 4px $goldColor, -1px -0 4px $goldColor, 1px -0 4px $goldColor, -1px 0 4px $goldColor, 1px 0 4px $goldColor, -1px -1px 4px $goldColor, 1px -1px 4px $goldColor, -1px 1px 4px $goldColor, 1px 1px 4px $goldColor, -1px -1px 4px $goldColor, 1px -1px 4px $goldColor, -1px 1px 4px $goldColor, 1px 1px 4px $goldColor;
+}
+
+@mixin textBorderWhite {
+    text-shadow: -0 -1px 1px $whiteColor, 0 -1px 1px $whiteColor, -0 1px 1px $whiteColor, 0 1px 1px $whiteColor, -1px -0 1px $whiteColor, 1px -0 1px $whiteColor, -1px 0 1px $whiteColor, 1px 0 1px $whiteColor, -1px -1px 1px $whiteColor, 1px -1px 1px $whiteColor, -1px 1px 1px $whiteColor, 1px 1px 1px $whiteColor, -1px -1px 1px $whiteColor, 1px -1px 1px $whiteColor, -1px 1px 1px $whiteColor, 1px 1px 1px $whiteColor;
+}
+
+@mixin textBorderBlack {
+    text-shadow: -0 -1px 1px $blackColor, 0 -1px 1px $blackColor, -0 1px 1px $blackColor, 0 1px 1px $blackColor, -1px -0 1px $blackColor, 1px -0 1px $blackColor, -1px 0 1px $blackColor, 1px 0 1px $blackColor, -1px -1px 1px $blackColor, 1px -1px 1px $blackColor, -1px 1px 1px $blackColor, 1px 1px 1px $blackColor, -1px -1px 1px $blackColor, 1px -1px 1px $blackColor, -1px 1px 1px $blackColor, 1px 1px 1px $blackColor;
+}
+
+//параметры шрифтов
+@mixin fontSize($fs: 16px,
+$fWe: 400,
+$liHe: 24px,
+$color: $whiteColor) {
+    font-size: $fs;
+    font-weight: $fWe;
+    line-height: $liHe;
+    color: $color;
+    font-style: normal;
+    font-family: $fontFamily1;
+}
+
+@mixin fontSizeP($fWe: 400,
+$liHe: calc(var(--fsP) * 2),
+$color: $blackColor) {
+    font-size: var(--fsP);
+    font-weight: $fWe;
+    line-height: $liHe;
+    color: $color;
+    font-style: normal;
+    font-family: $fontFamily1;
+}
+
+@mixin fontSizeH5( $fWe: 400,
+$liHe: calc(var(--fsH5) * 1.78),
+$color: $blackColor) {
+    font-size: var(--fsH5);
+    font-weight: $fWe;
+    line-height: $liHe;
+    color: $color;
+    font-style: normal;
+    font-family: $fontFamily1;
+}
+
+@mixin fontSizeH4( $fWe: 500,
+$liHe: calc(var(--fsH4) * 1.33),
+$color: $blackColor) {
+    font-size: var(--fsH4);
+    font-weight: $fWe;
+    line-height: $liHe;
+    color: $color;
+    font-style: normal;
+    font-family: $fontFamily1;
+}
+
+@mixin fontSizeH3( $fWe: 600,
+$liHe: calc(var(--fsH3) * 1.11),
+$color: $blackColor) {
+    font-size: var(--fsH3);
+    font-weight: $fWe;
+    line-height: $liHe;
+    color: $color;
+    font-style: normal;
+    font-family: $fontFamily1;
+}
+
+@mixin fontSizeH2($fWe: 700,
+$liHe: var(--liHeH2),
+$color: $blackColor) {
+    font-size: var(--fsH2);
+    font-weight: $fWe;
+    line-height: $liHe;
+    color: $color;
+    font-style: normal;
+    font-family: $fontFamily1;
+}
+
+//----------------------------------

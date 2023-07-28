@@ -1,0 +1,156 @@
+//3 секция
+.advantages {
+    @include wiHe($he: 782px);
+    @include flexAlJu(center);
+    background-color: $blueColor;
+    min-width: 0;
+    //----------Кнопки слайдера---------------
+    .wrapper-gallery-text .swiper-button-prev::after,
+    .wrapper-gallery-text .swiper-button-next::after {
+        color: $goldColor;
+    }
+    .wrapper-gallery-text .swiper-button-prev:hover::after,
+    .wrapper-gallery-text .swiper-button-next:hover::after {
+        @include textBorderBlack;
+    }
+    //---------------------
+    .wrapper-gallery-text {
+        @include wiHe(var(--contentWidh), max-content);
+    }
+    &__slide {
+        box-sizing: border-box;
+        width: 80%;
+        h3,
+        p,
+        h4 {
+            width: 70%;
+            display: block;
+            text-align: center;
+        }
+        h3 {
+            @include fontSizeH3($color: $goldColor);
+            margin: 0 auto 20px;
+        }
+        p {
+            @include fontSizeP($color: $whiteColor);
+            margin: 0 auto 40px;
+        }
+        h4 {
+            @include fontSizeH4($color: $goldColor);
+            margin: 0 auto;
+            text-transform: uppercase;
+            letter-spacing: 0.245em;
+        }
+    }
+    &__lable {
+        @include wiHe(83px, 58px);
+        margin: 0px auto 34px;
+        img {
+            @include wiHe;
+        }
+    }
+}
+
+@media (max-width: 1350px) {
+    .advantages {
+        @include wiHe($he: 582px);
+    }
+}
+
+@media (max-width: 1250px) {
+    .advantages {
+        @include wiHe($he: max-content);
+        padding: 70px 0;
+    }
+}
+
+@media (max-width: 1024px) {
+    .advantages {
+        padding: 50px 0;
+        .wrapper-gallery-text {
+            @include wiHe(90vw, max-content);
+        }
+        &__slide {
+            h3,
+            p,
+            h4 {
+                @include flCent;
+                width: 70vw;
+            }
+            h3 {
+                min-height: 75px;
+            }
+            p {
+                min-height: 112px;
+            }
+            h4 {
+                min-height: 30px;
+            }
+        }
+        &__lable {
+            @include wiHe(65px, 65px);
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .advantages {
+        padding: 30px 0;
+        &__lable {
+            margin-bottom: 4px;
+        }
+        &__slide {
+            h3,
+            p,
+            h4 {
+                width: 67vw;
+            }
+            h3 {
+                min-height: 100px;
+                margin-bottom: 2px;
+            }
+            p {
+                min-height: 175px;
+                margin-bottom: 2px;
+            }
+            h4 {
+                height: max-content;
+            }
+        }
+    }
+}
+
+@media (max-width: 495px) {
+    .advantages {
+        .wrapper-gallery-text {
+            @include wiHe(98vw);
+        }
+        &__slide {
+            h3,
+            p,
+            h4 {
+                width: 67vw;
+            }
+            h3 {
+                min-height: 100px;
+            }
+            p {
+                min-height: 255px;
+            }
+            h4 {
+                min-height: 60px;
+            }
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .advantages {
+        overflow: hidden;
+        &__slide {
+            p {
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
