@@ -52,61 +52,67 @@
     &__questions {
         display: grid;
         width: 678px;
-        .questions {
-            //заголовок
-            &__title {
-                @include fontSizeH2;
-                margin-bottom: 29px;
-            }
-            //форма
-            &__form {
-                width: 100%;
-                display: flex;
-                flex-wrap: wrap;
-                row-gap: 20px;
-                column-gap: 19px;
-                //подпись
-                label {
-                    @include fontSizeP;
-                    display: grid;
-                    //инпуты
-                    input {
-                        @include wiHe(320px, 80px);
-                        border: 1px solid $smokeColor;
-                        padding: 28px 16px;
-                        &:hover {
-                            border-color: $goldColor;
-                        }
-                        &:focus {
-                            border-color: $blueColor;
-                        }
-                    }
-                    //текстовое окно
-                    textarea {
-                        @include wiHe(100%, max-content);
-                        border: 1px solid $smokeColor;
-                        padding: 28px 16px;
-                        resize: none;
-                        overflow-y: auto;
-                        &:hover {
-                            border-color: $goldColor;
-                        }
-                        &:focus {
-                            border-color: $blueColor;
-                        }
-                    }
-                }
-            }
-            //кнопка отправки формы
-            &__btn {
-                @include wiHe(270px, 100px);
-                @include fontSizeH4($color: $whiteColor);
-                background-color: $blueColor;
+    }
+}
+
+.questions {
+    //заголовок
+    &__title {
+        @include fontSizeH2;
+        margin-bottom: 29px;
+    }
+    //форма
+    &__form {
+        width: 100%;
+        display: grid;
+        grid-template-areas: 'questions__name questions__email' 'questions__request questions__request' 'questions__btn questions__btn';
+        flex-wrap: wrap;
+        row-gap: 20px;
+        column-gap: 19px;
+        //подпись
+        label {
+            @include fontSizeP;
+            display: grid;
+            //инпуты
+            input {
+                @include wiHe(320px, 80px);
+                border: 1px solid $smokeColor;
+                padding: 28px 16px;
                 &:hover {
-                    box-shadow: 0 0 10px 1px $goldColor;
-                    color: $goldColor;
+                    border-color: $goldColor;
+                }
+                &:focus {
+                    border-color: $blueColor;
                 }
             }
+            //текстовое окно
+            textarea {
+                @include wiHe(100%, max-content);
+                border: 1px solid $smokeColor;
+                padding: 28px 16px;
+                resize: none;
+                overflow-y: auto;
+                &:hover {
+                    border-color: $goldColor;
+                }
+                &:focus {
+                    border-color: $blueColor;
+                }
+            }
+        }
+    }
+    &__request {
+        grid-area: questions__request;
+    }
+    //кнопка отправки формы
+    &__btn {
+        grid-area: questions__btn;
+        @include wiHe(270px, 100px);
+        @include fontSizeH4($color: $whiteColor);
+        background-color: $blueColor;
+        &:hover {
+            box-shadow: 0 0 10px 1px $goldColor;
+            color: $goldColor;
         }
     }
 }
@@ -116,41 +122,41 @@
         padding-bottom: 25px;
         &__questions {
             width: 57%;
-            .questions {
-                &__title {
-                    margin-bottom: 29px;
+        }
+    }
+    .questions {
+        &__title {
+            margin-bottom: 29px;
+        }
+        &__form {
+            width: 100%;
+            @include gridCent;
+            grid-template-areas: 'questions__name questions__email' 'questions__request questions__request' 'questions__btn questions__btn';
+            grid-template-columns: 48% 48%;
+            grid-template-rows: 20% 50% 10%;
+            row-gap: 10%;
+            column-gap: 4%;
+            label {
+                input {
+                    @include wiHe;
                 }
-                &__form {
-                    width: 100%;
-                    @include gridCent;
-                    grid-template-areas: 'questions__name questions__email' 'questions__request questions__request' 'questions__btn questions__btn';
-                    grid-template-columns: 48% 48%;
-                    grid-template-rows: 20% 50% 10%;
-                    row-gap: 10%;
-                    column-gap: 4%;
-                    label {
-                        input {
-                            @include wiHe;
-                        }
-                        textarea {
-                            @include wiHe;
-                        }
-                    }
-                }
-                &__name {
-                    grid-area: questions__name;
-                }
-                &__email {
-                    grid-area: questions__email;
-                }
-                &__request {
-                    grid-area: questions__request;
-                }
-                &__btn {
-                    @include wiHe(180px, 60px);
-                    grid-area: questions__btn;
+                textarea {
+                    @include wiHe;
                 }
             }
+        }
+        &__name {
+            grid-area: questions__name;
+        }
+        &__email {
+            grid-area: questions__email;
+        }
+        &__request {
+            grid-area: questions__request;
+        }
+        &__btn {
+            @include wiHe(180px, 60px);
+            grid-area: questions__btn;
         }
     }
 }
@@ -173,6 +179,23 @@
                 }
                 &__lable {
                     @include wiHe(64px, 64px);
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .questions {
+        &__form {
+            label {
+                input {
+                    padding: 10px 16px;
+                }
+                textarea {
+                    @include wiHe(100%, 200px);
+                    padding: 10px 16px;
+                    margin-bottom: 20px;
                 }
             }
         }
@@ -205,11 +228,11 @@
         }
         &__questions {
             width: 100%;
-            .questions {
-                &__btn {
-                    margin: auto;
-                }
-            }
+        }
+    }
+    .questions {
+        &__btn {
+            margin: auto;
         }
     }
 }
@@ -245,23 +268,23 @@
         }
         &__questions {
             width: 100%;
-            .questions {
-                &__title {
-                    margin-bottom: 29px;
-                }
-                &__form {
-                    width: 100%;
-                    @include gridCent;
-                    grid-template-areas: 'questions__name' 'questions__email' 'questions__request' 'questions__btn';
-                    grid-template-columns: 90%;
-                    grid-template-rows: max-content;
-                    row-gap: 5px;
-                    column-gap: unset;
-                }
-                &__btn {
-                    @include wiHe(120px, 40px);
-                }
-            }
+        }
+    }
+    .questions {
+        &__title {
+            margin-bottom: 29px;
+        }
+        &__form {
+            width: 100%;
+            @include gridCent;
+            grid-template-areas: 'questions__name' 'questions__email' 'questions__request' 'questions__btn';
+            grid-template-columns: 90%;
+            grid-template-rows: max-content;
+            row-gap: 5px;
+            column-gap: unset;
+        }
+        &__btn {
+            @include wiHe(120px, 40px);
         }
     }
 }
